@@ -8,6 +8,9 @@ const {
 const {
   barHandler
 } = require('./bar')
+const {
+  quuxHandler
+} = require('./quux')
 
 function mkhandler (rhfn) {
   return function inst(req, res) {
@@ -22,6 +25,7 @@ app.use(clsify(cls.createNamespace('omg')))
 
 app.get('/foo', mkhandler(fooHandler))
 app.get('/bar', mkhandler(barHandler))
+app.get('/quux', mkhandler(quuxHandler))
 
 app.listen(4444, () => {
   console.log('listen 4444')
